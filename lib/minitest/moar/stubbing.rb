@@ -49,4 +49,6 @@ module Minitest::Moar::Stubbing
   end
 end
 
-Object.send(:remove_method, :stub)
+if Object.respond_to?(:stub)
+  Object.send(:remove_method, :stub)
+end

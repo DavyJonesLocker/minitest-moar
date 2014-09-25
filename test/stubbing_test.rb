@@ -51,4 +51,14 @@ class StubbingTest < Minitest::Test
 
     assert_equal 1, @called
   end
+
+  def test_module_stubbing
+    @called = 0
+    caller = Proc.new { @called += 1 }
+    stub Project, :name, caller do
+      Project.name
+    end
+
+    assert_equal 1, @called
+  end
 end

@@ -21,3 +21,9 @@ class Dog < BasicObject
     'Boomer'
   end
 end
+
+module Project
+  def self.name
+    'Best Project Evar'
+  end
+end

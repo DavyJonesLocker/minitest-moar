@@ -39,4 +39,16 @@ class StubbingTest < Minitest::Test
 
     assert_equal 1, @called
   end
+
+  def test_basic_object_stubbing
+    dog = Dog.new
+
+    @called = 0
+    caller = Proc.new { @called += 1 }
+    stub dog, :name, caller do
+      dog.name
+    end
+
+    assert_equal 1, @called
+  end
 end

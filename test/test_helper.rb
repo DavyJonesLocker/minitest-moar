@@ -15,3 +15,9 @@ class Person
     book.read
   end
 end
+
+class Dog < BasicObject
+  def name
+    'Boomer'
+  end
+end

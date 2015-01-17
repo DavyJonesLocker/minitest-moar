@@ -27,7 +27,7 @@ module Minitest::Moar::Stubbing
 
     @invocations ||= Hash.new { |h, k| h[k] = Hash.new { |_h, _k| _h[_k] = 0 } }
 
-    invoker = Proc.new { |klass, name| @invocations[klass][name] += 1 }
+    invoker = Proc.new { |k, n| @invocations[k][n] += 1 }
 
     obj.send :alias_method, new_name, name
 
